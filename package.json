@@ -1,0 +1,19 @@
+{
+  "name": "prototype-pollution-dvwa",
+  "version": "1.0.0",
+  "description": "Intentionally vulnerable application used to demonstrate client and server side prototype pollution",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hurtsec/prototype-pollution-dvwa.git"
+  },
+  "author": "J Hurt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hurtsec/prototype-pollution-dvwa/issues"
+  },
+  "homepage": "https://github.com/hurtsec/prototype-pollution-dvwa#readme"
+}
