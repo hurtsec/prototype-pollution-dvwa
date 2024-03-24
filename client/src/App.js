@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {BrowserRouter as Router, useSearchParams} from 'react-router-dom'
 import _ from 'lodash'
+import axios from 'axios'
 import './App.css'
 
 function App() {
