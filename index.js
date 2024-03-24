@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const uuid = require(uuid)
+const uuid = require('uuid')
 
 const app = express()
 const port = 5001
