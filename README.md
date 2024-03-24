@@ -3,14 +3,26 @@ The Prototype Pollution DVWA is designed specifically to illustrate and educate 
 
 # Getting Started
 1. **Clone the Repository:** Start by cloning this repository to your local machine to set up the DVWA environment.
-2. **Install Server Side Dependencies:** Navigate to the cloned repository directory and install necessary dependencies. ```cd prototype-pollution-dvwa
-npm install```
-3. **Install Client Side Dependencies:** Navigate to the client directory inside the cloned repository directory and install necessary dependencies. ```cd prototype-pollution-dvwa/client
-npm install```
-4. **Run the Application Server:** Launch the DVWA server. ```cd prototype-pollution-dvwa
-npm start```
-5. **Run the Application Client:** Launch the DVWA client to start exploring the vulnerabilities. ```cd prototype-pollution-dvwa/client
-npm start```
+2. **Install Server Side Dependencies:** Navigate to the cloned repository directory and install necessary dependencies.
+```
+    cd prototype-pollution-dvwa
+    npm install
+```
+3. **Install Client Side Dependencies:** Navigate to the client directory inside the cloned repository directory and install necessary dependencies.
+```
+cd prototype-pollution-dvwa/client
+npm install
+```
+4. **Run the Application Server:** Launch the DVWA server.
+```
+cd prototype-pollution-dvwa
+npm start
+```
+5. **Run the Application Client:** Launch the DVWA client to start exploring the vulnerabilities.
+```
+cd prototype-pollution-dvwa/client
+npm start
+```
 
 # Exploiting the Vulnerabilities
 ## Client Side Prototype Pollution
