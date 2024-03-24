@@ -1,15 +1,26 @@
-import {useState, useEffect} from 'react';
-import './App.css';
+import {useState, useEffect} from 'react'
+import {BrowserRouter as Router, useSearchParams} from 'react-router-dom'
+import _ from 'lodash'
+import './App.css'
 
 function App() {
   const MainComponent = () => {
     const [user, setUser] = useState()
+    const [searchParams] = useSearchParams()
     
     useEffect(() => {
       axios.get('http://localhost:5001/user')
         .then(res => setUser(res.data))
         .catch(error => console.error(error))
     }, [])
+
+    if (user && searchParams.get('userSettings')) {
+      // Vulnerable code allowing for attacker to pass in a crafted object
+      // and pollute the JavaScript Object Prototype with additional properties
+      // causing all objects to contain the polluted property.
+      // Example Payload: http://localhost:3000/?userSettings={"__proto__":{"admin":1}}
+      _.merge(user.userSettings, JSON.parse(searchParams.get('userSetting')))
+    }
 
     return (
       <div className="App">
@@ -31,7 +42,11 @@ function App() {
     );
   }
 
-  return (<MainComponent />)
+  return (
+    <Router>
+      <MainComponent />
+    </Router>
+  )
 }
 
 export default App;
