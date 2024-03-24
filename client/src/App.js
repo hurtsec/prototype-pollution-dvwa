@@ -20,7 +20,7 @@ function App() {
       // and pollute the JavaScript Object Prototype with additional properties
       // causing all objects to contain the polluted property.
       // Example Payload: http://localhost:3000/?userSettings={"__proto__":{"admin":1}}
-      _.merge(user.userSettings, JSON.parse(searchParams.get('userSetting')))
+      _.merge({}, JSON.parse(searchParams.get('userSettings')))
     }
 
     return (
@@ -37,7 +37,7 @@ function App() {
         <section className="app-body">
           {/* Information disclosure occurs when attacker pollutes the JavaScript Object Prototype
               with an `admin` property, triggering this conditional element to be revealed. */}
-          {(user && user.admin) && <p class="flag">FLAG:f10c4$7c1i3n7pr0707yp3p011u7i0n</p>}
+          {(user && user.admin) && <p className="flag">FLAG:f10c4$7c1i3n7pr0707yp3p011u7i0n</p>}
         </section>
       </div>
     );
